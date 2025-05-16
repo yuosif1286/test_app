@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sales_uikit/Components/s_app_bar.dart';
 import 'package:sales_uikit/sales_uikit.dart';
+import 'package:test_app/pages/card_item_vertical.dart';
 import 'package:test_app/pages/home_page.dart';
+import 'package:test_app/pages/typography.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +23,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/':(context)=> const HomePage(title: 'Flutter Demo app',)
+        '/':(context)=> const HomePage(title: 'Flutter Demo app',),
+        '/cartItemVertical':(context)=>const CartItemVertical(),
+        '/typography':(context)=> const TypographyPage()
       },
     );
   }

@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       key: _scaffoldKey,
-      appBar:    SAppBar(title: 'Dashboard',showBackButton: true,actions: [IconButton(icon: const Icon(Icons.menu), onPressed: () {
+      appBar:    SAppBar(title: 'Dashboard',showBackButton: false,actions: [IconButton(icon: const Icon(Icons.menu), onPressed: () {
        _scaffoldKey.currentState?.openDrawer();
       }),],),
       drawer: const AppDrawer(),

@@ -10,7 +10,8 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           const DrawerHeader(
-            decoration: BoxDecoration(color: Colors.blue),
+            duration:Duration(microseconds: 450) ,
+            decoration: BoxDecoration(color: Colors.deepPurple,),
             child: Text('Navigation Menu', 
               style: TextStyle(color: Colors.white, fontSize: 24)),
           ),
@@ -24,10 +25,18 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.settings),
-            title: const Text('Page 1'),
+            title: const Text('Cart Item Vertacl'),
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushNamed(context, '/page1');
+              Navigator.pushNamed(context, '/cartItemVertical');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.text_snippet),
+            title: const Text('Typography'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/typography');
             },
           ),
         ],
