@@ -32,6 +32,14 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            leading: const Icon(Icons.card_giftcard),
+            title: const Text('Cart Item horizantl'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/cartItemHorizantl');
+            },
+          ),
+          ListTile(
             leading: const Icon(Icons.text_snippet),
             title: const Text('Typography'),
             onTap: () {

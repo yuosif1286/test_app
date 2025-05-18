@@ -18,7 +18,7 @@ class CartItemVertical extends StatelessWidget {
           imageUrl: 'https://www.pngall.com/wp-content/uploads/4/Shampoo-Transparent.png', 
           title: 'FacTop',
            description: 'Micellar Makup Remove this from', 
-           itemCountInWarhouse: '3',
+           itemCountInWarhouse: 3,
            brand: 'apple',
            discount: 10,
             price: 5000,
