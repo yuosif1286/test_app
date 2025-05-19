@@ -1,34 +1,121 @@
 import 'package:flutter/material.dart';
 import 'package:sales_uikit/Components/s_app_bar.dart';
-import 'package:sales_uikit/sales_uikit.dart';
+import 'package:test_app/layout/drawer.dart';
 import 'package:test_app/pages/card_item_horizantl.dart';
 import 'package:test_app/pages/card_item_vertical.dart';
-import 'package:test_app/pages/home_page.dart';
 import 'package:test_app/pages/typography.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  // Track the current theme mode
+  ThemeMode _themeMode = ThemeMode.light;
+
+  // Function to toggle between light and dark mode
+  void _toggleTheme() {
+    setState(() {
+      _themeMode = _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          brightness: Brightness.light,
+        ),
         useMaterial3: true,
       ),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+      ),
+      themeMode: _themeMode,
       initialRoute: '/',
       routes: {
-        '/':(context)=> const HomePage(title: 'Flutter Demo app',),
-        '/cartItemVertical':(context)=>const CartItemVertical(),
-        '/typography':(context)=> const TypographyPage(),
-        '/cartItemHorizantl':(context)=> const CardItemHorizantl(),
+        '/': (context) => HomePage(
+              title: 'Flutter Demo app',
+              toggleTheme: _toggleTheme,
+              isDarkMode: _themeMode == ThemeMode.dark,
+            ),
+        '/cartItemVertical': (context) => const CartItemVertical(),
+        '/typography': (context) => const TypographyPage(),
+        '/cartItemHorizantl': (context) => const CardItemHorizantl(),
       },
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  final String title;
+  final VoidCallback toggleTheme;
+  final bool isDarkMode;
+
+  const HomePage({
+    super.key,
+    required this.title,
+    required this.toggleTheme,
+    required this.isDarkMode,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: const AppDrawer(),
+      appBar: SAppBar(
+        title: title,
+        actions: [
+          IconButton(
+            icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
+            onPressed: toggleTheme,
+          ),
+        ],
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'Current Theme: ${isDarkMode ? 'Dark' : 'Light'}',
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/cartItemVertical');
+              },
+              child: const Text('Go to Vertical Card'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/cartItemHorizantl');
+              },
+              child: const Text('Go to Horizontal Card'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/typography');
+              },
+              child: const Text('Go to Typography'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
