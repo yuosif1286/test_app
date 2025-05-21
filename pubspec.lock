@@ -190,10 +190,12 @@ packages:
   sales_uikit:
     dependency: "direct main"
     description:
-      path: "../sales_uikit"
-      relative: true
-    source: path
-    version: "0.0.1"
+      path: "."
+      ref: main
+      resolved-ref: f576f69511089987c3e8d83c0b25c64381ceaa5e
+      url: "https://github.com/yuosif1286/sales_uikit"
+    source: git
+    version: "1.0.3"
   sky_engine:
     dependency: transitive
     description: flutter
