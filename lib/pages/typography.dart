@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:sales_uikit/Components/s_app_bar.dart';
-import 'package:sales_uikit/Constants/s_typography.dart';
+import 'package:sales_uikit/Constants/Text/s_typography.dart';
 class TypographyPage extends StatelessWidget {
   const TypographyPage({super.key});
 

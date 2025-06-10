@@ -3,6 +3,7 @@ import 'package:sales_uikit/Components/s_app_bar.dart';
 import 'package:test_app/layout/drawer.dart';
 import 'package:test_app/pages/card_item_horizantl.dart';
 import 'package:test_app/pages/card_item_vertical.dart';
+import 'package:test_app/pages/category_btn.dart';
 import 'package:test_app/pages/typography.dart';
 
 void main() {
@@ -56,6 +57,7 @@ class _MyAppState extends State<MyApp> {
         '/cartItemVertical': (context) => const CartItemVertical(),
         '/typography': (context) => const TypographyPage(),
         '/cartItemHorizantl': (context) => const CardItemHorizantl(),
+        '/category':(context)=>const CategoryBtn()
       },
     );
   }

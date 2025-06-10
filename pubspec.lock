@@ -107,6 +107,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      sha256: "1ce844379ca14835a50d2f019a3099f419082cfdd231cd86a142af94dd5c6bb1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.9.0"
   leak_tracker:
     dependency: transitive
     description:
@@ -190,12 +198,10 @@ packages:
   sales_uikit:
     dependency: "direct main"
     description:
-      path: "."
-      ref: main
-      resolved-ref: f576f69511089987c3e8d83c0b25c64381ceaa5e
-      url: "https://github.com/yuosif1286/sales_uikit"
-    source: git
-    version: "1.0.3"
+      path: "../sales_uikit"
+      relative: true
+    source: path
+    version: "1.0.5"
   sky_engine:
     dependency: transitive
     description: flutter

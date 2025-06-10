@@ -8,9 +8,9 @@ class CartItemVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
        backgroundColor: Colors.grey,
-      appBar: const SAppBar(
+      appBar: SAppBar(
         title: 'Cart Item',
         showBackButton: false,
       ),

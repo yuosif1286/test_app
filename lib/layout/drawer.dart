@@ -47,6 +47,14 @@ class AppDrawer extends StatelessWidget {
               Navigator.pushNamed(context, '/typography');
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.text_snippet),
+            title: const Text('Category'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/category');
+            },
+          ),
         ],
       ),
     );
