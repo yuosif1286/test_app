@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sales_uikit/Components/s_app_bar.dart';
+import 'package:sales_uikit/pages/no_data_available.dart';
 import 'package:test_app/layout/drawer.dart';
 import 'package:test_app/pages/card_item_horizantl.dart';
 import 'package:test_app/pages/card_item_vertical.dart';
 import 'package:test_app/pages/category_btn.dart';
 import 'package:test_app/pages/typography.dart';
+import 'package:sales_uikit/Components/Button/s_btn_back.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +26,8 @@ class _MyAppState extends State<MyApp> {
   // Function to toggle between light and dark mode
   void _toggleTheme() {
     setState(() {
-      _themeMode = _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+      _themeMode =
+          _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
     });
   }
 
@@ -56,8 +59,13 @@ class _MyAppState extends State<MyApp> {
             ),
         '/cartItemVertical': (context) => const CartItemVertical(),
         '/typography': (context) => const TypographyPage(),
-        '/cartItemHorizantl': (context) => const CardItemHorizantl(),
-        '/category':(context)=>const CategoryBtn()
+        '/cartItemHorizontal': (context) => const CardItemHorizontal(),
+        '/category': (context) => const CategoryBtn(),
+        '/noData': (context) => NoDataAvailablePage(
+              child: SButtonBack(
+                onPressed: () => print('this test used'),
+              ),
+            )
       },
     );
   }
@@ -105,7 +113,7 @@ class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/cartItemHorizantl');
+                Navigator.pushNamed(context, '/cartItemHorizontal');
               },
               child: const Text('Go to Horizontal Card'),
             ),

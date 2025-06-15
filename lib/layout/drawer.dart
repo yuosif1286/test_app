@@ -10,10 +10,12 @@ class AppDrawer extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
           const DrawerHeader(
-            duration:Duration(microseconds: 450) ,
-            decoration: BoxDecoration(color: Colors.deepPurple,),
-            child: Text('Navigation Menu', 
-              style: TextStyle(color: Colors.white, fontSize: 24)),
+            duration: Duration(microseconds: 450),
+            decoration: BoxDecoration(
+              color: Colors.deepPurple,
+            ),
+            child: Text('Navigation Menu',
+                style: TextStyle(color: Colors.white, fontSize: 24)),
           ),
           ListTile(
             leading: const Icon(Icons.home),
@@ -33,10 +35,10 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.card_giftcard),
-            title: const Text('Cart Item horizantl'),
+            title: const Text('Cart Item horizontal'),
             onTap: () {
               Navigator.pop(context);
-              Navigator.pushNamed(context, '/cartItemHorizantl');
+              Navigator.pushNamed(context, '/cartItemHorizontal');
             },
           ),
           ListTile(
@@ -53,6 +55,14 @@ class AppDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.pushNamed(context, '/category');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.text_snippet),
+            title: const Text('No Data Page'),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/noData');
             },
           ),
         ],

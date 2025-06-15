@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:sales_uikit/Components/s_app_bar.dart';
 import 'package:sales_uikit/sales_uikit.dart';
@@ -15,27 +14,32 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
- final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   void _incrementCounter() {
-    var calculate=Calculator();
+    var calculate = Calculator();
     setState(() {
-      _counter=calculate.addOne(_counter);
+      _counter = calculate.addOne(_counter);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       key: _scaffoldKey,
-      appBar:    SAppBar(title: 'Dashboard',showBackButton: false,actions: [IconButton(icon: const Icon(Icons.menu), onPressed: () {
-       _scaffoldKey.currentState?.openDrawer();
-      }),],),
+      appBar: SAppBar(
+        title: 'Dashboard',
+        showBackButton: false,
+        actions: [
+          IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                _scaffoldKey.currentState?.openDrawer();
+              }),
+        ],
+      ),
       drawer: const AppDrawer(),
       body: Center(
-
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
@@ -53,7 +57,6 @@ class _HomePageState extends State<HomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
-       
     );
   }
 }
