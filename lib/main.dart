@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:sales_uikit/Components/Button/s_base_btn.dart';
 import 'package:sales_uikit/Components/s_app_bar.dart';
-import 'package:sales_uikit/pages/no_data_available.dart';
 import 'package:test_app/layout/drawer.dart';
+import 'package:test_app/pages/base_btn.dart';
 import 'package:test_app/pages/card_item_horizantl.dart';
 import 'package:test_app/pages/card_item_vertical.dart';
 import 'package:test_app/pages/category_btn.dart';
 import 'package:test_app/pages/typography.dart';
 import 'package:sales_uikit/Components/Button/s_btn_back.dart';
+import 'package:sales_uikit/pages/no_data_available_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -58,6 +60,7 @@ class _MyAppState extends State<MyApp> {
               isDarkMode: _themeMode == ThemeMode.dark,
             ),
         '/cartItemVertical': (context) => const CartItemVertical(),
+        '/baseBtn': (context) => const BaseButton(),
         '/typography': (context) => const TypographyPage(),
         '/cartItemHorizontal': (context) => const CardItemHorizontal(),
         '/category': (context) => const CategoryBtn(),
@@ -72,11 +75,12 @@ class _MyAppState extends State<MyApp> {
 }
 
 class HomePage extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   final String title;
   final VoidCallback toggleTheme;
   final bool isDarkMode;
 
-  const HomePage({
+  HomePage({
     super.key,
     required this.title,
     required this.toggleTheme,
@@ -86,10 +90,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       drawer: const AppDrawer(),
       appBar: SAppBar(
         title: title,
         actions: [
+          IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                _scaffoldKey.currentState?.openDrawer();
+              }),
           IconButton(
             icon: Icon(isDarkMode ? Icons.light_mode : Icons.dark_mode),
             onPressed: toggleTheme,
@@ -122,6 +132,12 @@ class HomePage extends StatelessWidget {
                 Navigator.pushNamed(context, '/typography');
               },
               child: const Text('Go to Typography'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/baseBtn');
+              },
+              child: const Text('Go to base Btn'),
             ),
           ],
         ),
